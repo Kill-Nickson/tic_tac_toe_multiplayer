@@ -95,7 +95,7 @@ def create_new_lobby(lobbies, lobby_name, player_socket, username):
     Thread(target=run_lobby, args=(lobby_socket, lobby_name, lobbies)).start()
 
 
-def join_lobby(lobbies: dict[str, Lobby], player_socket):
+def join_lobby(lobbies: dict, player_socket):
     while True:
         lobbies_dict = {
             lobby_name: lobby.lobby_socket.getsockname()[1]
