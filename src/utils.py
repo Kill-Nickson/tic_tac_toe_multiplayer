@@ -10,7 +10,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-SERVER_IP_ADDRESS = os.getenv('SERVER_IP_ADDRESS')
+SERVER_IP_ADDRESS = os.environ['SERVER_IP_ADDRESS']
+print('SERVER_IP_ADDRESS:', SERVER_IP_ADDRESS, '\n')
 
 LOBBY_TIMEOUT = 30
 
