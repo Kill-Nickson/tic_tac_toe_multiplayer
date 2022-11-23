@@ -50,7 +50,7 @@ def process_players_turns(curr_lobby, turn, lobbies):
         turn = not turn
 
 
-def run_lobby(lobby_socket: socket, lobby_name, lobbies: dict[str, Lobby]):
+def run_lobby(lobby_socket: socket, lobby_name, lobbies: dict):
     curr_lobby = lobbies[lobby_name]
 
     # Start awaiting second player connection
