@@ -29,7 +29,7 @@ class Lobby:
     board: list
     players: List[str] = None
     players_sockets: List[socket] = None
-    players_chars: dict[str, socket] = dict
+    players_chars: dict = dict
 
 
 def dict_to_bytes(d: dict) -> bytes:

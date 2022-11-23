@@ -4,6 +4,11 @@ from socket import AF_INET, SOCK_STREAM
 from utils import *
 
 
+# REMOTE_SERVER_IP_ADDRESS = '127.0.0.1'
+REMOTE_SERVER_IP_ADDRESS = '3.89.207.99'
+REMOTE_SERVER_PORT = 7999
+
+
 def clear_screen():
     os.system('cls')
 
@@ -78,7 +83,7 @@ def host_lobby(username, server_socket, lobby_socket):
     data = bytes_to_dict(server_socket.recv(1024))
     lobby_socket_port = data['new_lobby_port']
 
-    lobby_socket.connect(('127.0.0.1', lobby_socket_port))
+    lobby_socket.connect((REMOTE_SERVER_IP_ADDRESS, lobby_socket_port))
 
     print(f'Start awaiting for a second player... ({int(lobby_socket.timeout)} seconds)')
     return lobby_socket
@@ -111,7 +116,7 @@ def join_lobby(username, server_socket, lobby_socket):
             elif choice == '2':
                 return False
 
-    lobby_socket.connect(('127.0.0.1', lobbies_dict.get(lobby_name)))
+    lobby_socket.connect((REMOTE_SERVER_IP_ADDRESS, lobbies_dict.get(lobby_name)))
     lobby_socket.send(dict_to_bytes({'username': username}))
     return lobby_socket
 
@@ -121,7 +126,7 @@ def open_menu(username: str):
     while True:
         try:
             print(' Trying to connect to the remote server...')
-            server_socket.connect(('127.0.0.1', 8000))
+            server_socket.connect((REMOTE_SERVER_IP_ADDRESS, REMOTE_SERVER_PORT))
             break
         except ConnectionRefusedError:
             print(' Server is still down... Pause before next try... ')
