@@ -125,7 +125,7 @@ def process_player_session(player_socket, lobbies):
 
 def start_accepting_hosts(lobbies):
     server_socket = socket(AF_INET, SOCK_STREAM)
-    server_socket.bind((SERVER_IP_ADDRESS, SERVER_PORT))
+    server_socket.bind((SERVER_IP_ADDRESS, int(SERVER_PORT)))
     server_socket.listen()
     while True:
         accepted_data = server_socket.accept()
