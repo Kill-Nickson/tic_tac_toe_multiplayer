@@ -11,6 +11,7 @@ load_dotenv()
 
 
 SERVER_IP_ADDRESS = os.environ['SERVER_IP_ADDRESS']
+SERVER_PORT = os.environ['SERVER_PORT']
 
 LOBBY_TIMEOUT = 30
 
